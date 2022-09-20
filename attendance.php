@@ -1,22 +1,21 @@
 <?php
 $koneksi	= mysqli_connect("127.0.0.1","root","","attendance");
 $url 		= 'http://103.212.236.182:1880/RFC/ATTENDANCE/';
-// $url 		= 'http://mandiricoal.co.id:1880/RFC/ATTENDANCE/';
 $no 		= 0;
 
 $query		= mysqli_query($koneksi, "SELECT * FROM log");
 while($row 	= mysqli_fetch_array($query)) {
 	$data[$no] = array(
-		'APPS'  		=> 'SEMAR',  					// Nama Aplikasi
-		'MODULE'  		=> 'ATTENDANCE',  				// Nama Module
-		'EMPLOYEE'  	=> $row['log_employee'],     	// NIK SAP Karyawan, 	ex -> 0402
-		'DATES'  		=> $row['log_date'],	  	    // Tanggal Absensi,  	ex -> 2022-01-01
-		'ABSENCE'  		=> $row['log_absence'],  		// Status Absensi,  	ex -> H / I / S
-		'WORKTIME'  	=> $row['log_worktime'],	  	// Shift Kerja,  		ex -> DAY / NIGHT
-		'TSTART'  		=> $row['log_time_start'],  	// Absen Datang,	    ex -> 07:00:00
-		'TEND'  		=> $row['log_time_end'],	  	// Absen Pulang, 	    ex -> 17:00:00
-		'TOTAL'  		=> $row['log_total'],	  		// Total Jam Kerja,		ex -> 10
-		'ROSTER'  		=> $row['log_roster'],	  		// Roster,				ex -> H8
+		'APPS'  	=> 'SEMAR',  			// Nama Aplikasi
+		'MODULE'  	=> 'ATTENDANCE',  		// Nama Module
+		'EMPLOYEE'  	=> $row['log_employee'],     	// NIK SAP Karyawan, 	contoh -> 0402
+		'DATES'  	=> $row['log_date'],	  	// Tanggal Absensi,  	contoh -> 2022-01-01
+		'ABSENCE'  	=> $row['log_absence'],  	// Status Absensi,  	contoh -> H / I / S
+		'WORKTIME'  	=> $row['log_worktime'],	// Shift Kerja,  	contoh -> DAY / NIGHT
+		'TSTART'  	=> $row['log_time_start'],  	// Absen Datang,	contoh -> 07:00:00
+		'TEND'  	=> $row['log_time_end'],	// Absen Pulang, 	contoh -> 17:00:00
+		'TOTAL'  	=> $row['log_total'],	  	// Total Jam Kerja,	contoh -> 10
+		'ROSTER'  	=> $row['log_roster'],	  	// Roster,		contoh -> H8
 	);
 	$no++;
 	@array_push($data[],$data[$no]);
