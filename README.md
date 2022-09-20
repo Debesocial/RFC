@@ -1,9 +1,9 @@
-# RFC-Script
-Simulasi integrasi SAP dengan WEB Application.
-API di generate dengan menggunakan NODE-RED & bahasa pemrograman yang digunakan adalah .PHP
+# RFC script
+SAP integration using WEB Application.
+The API is generated using NODE-RED & the programming language used is PHP.
 
 # attendance.php
-Script ini adalah simulasi untuk melakukan upload absen secara berkala. Dengan menjalankan script ini, data dari database (MySQL) akan secara otomatis diupload ke dalam sistem SAP.
+This script is a simulation to upload attendance periodically. By running this script, the data from the database (MySQL) will be automatically uploaded into the SAP system.
 
-# postdata.php
-Script ini merupakan sebuah form untuk melakukan post data ke dalam sistem SAP.
+#postdata.php
+This script is a form to post data into the SAP system.
