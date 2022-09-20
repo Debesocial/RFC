@@ -1,2 +1,6 @@
 # RFC-Script
-Contoh simulasi integrasi SAP dengan WEB Application
+Contoh simulasi integrasi SAP dengan WEB Application,
+
+# attendance.php
+
+# postdata.php
