@@ -103,15 +103,14 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$url 		= 'http://103.212.236.182:1880/RFC/POSTDATA/';
-	// $url 		= 'http://mandiricoal.co.id:1880/RFC/POSTDATA/';
 	$data[] = array(
-		'APPS'  	=> 'SEMAR',  
-		'MODULE'  	=> 'POSTDATA',  
-		'PARAM1'  	=> $_POST['param1'],     	
-		'PARAM2'    => $_POST['param2'],	  	   
-		'PARAM3'  	=> $_POST['param3'],
-		'PARAM4'  	=> $_POST['param4'],    
-		'PARAM5'  	=> $_POST['param5']
+		'APPS'  	=> 'SEMAR',  		// Nama Aplikasi
+		'MODULE'  	=> 'POSTDATA',  	// Nama Module
+		'PARAM1'  	=> $_POST['param1'],    // Contoh Parameter 1	
+		'PARAM2'    	=> $_POST['param2'],	// Contoh Parameter 2  	   
+		'PARAM3'  	=> $_POST['param3'],	// Contoh Parameter 3
+		'PARAM4'  	=> $_POST['param4'],    // Contoh Parameter 4
+		'PARAM5'  	=> $_POST['param5']	// Contoh Parameter 5
 	);
 
 	@array_push($data[]);
