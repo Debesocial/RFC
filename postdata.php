@@ -75,7 +75,7 @@
 									</thead>
 									<tbody>
 										<?php
-										$json_string = file_get_contents("http://103.212.236.182:1880/RFC/VIEWDATA/");
+										$json_string = file_get_contents("http://mandiricoal.co.id:1880/RFC/VIEWDATA/");
 										$array = json_decode($json_string, true);
 										foreach($array['ITAB'] as $key => $value): ?>
 											<tr>
@@ -102,7 +102,7 @@
 <!-- POST ACTION -->
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-	$url 		= 'http://103.212.236.182:1880/RFC/POSTDATA/';
+	$url 		= 'http://mandiricoal.co.id:1880/RFC/POSTDATA/';
 	$data[] = array(
 		'APPS'  	=> 'SEMAR',  		// Nama Aplikasi
 		'MODULE'  	=> 'POSTDATA',  	// Nama Module
