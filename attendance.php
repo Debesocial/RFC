@@ -1,6 +1,6 @@
 <?php
 $koneksi	= mysqli_connect("127.0.0.1","root","","attendance");
-$url 		= 'http://mandiricoal.co.id:1880/RFC/ATTENDANCE/';
+$url 		= 'http://103.212.236.182:1880/RFC/ATTENDANCE/';
 $no 		= 0;
 
 $query		= mysqli_query($koneksi, "SELECT * FROM log");
@@ -36,4 +36,4 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json','Con
 $out = curl_exec($ch);
 curl_close($ch);
 echo $out;
-?>
+?> 
