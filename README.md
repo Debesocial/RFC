@@ -7,4 +7,4 @@ This script is a simulation to upload attendance periodically. By running this s
 
 # postdata.php
 This script is a form to post data into the SAP system.
-<img src = 'postdata.png'>
+<img src = 'img/postdata.png'>
