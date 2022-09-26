@@ -79,13 +79,13 @@
 										$array = json_decode($json_string, true);
 										foreach($array['ITAB'] as $key => $value): ?>
 											<tr>
-												<td><?php echo $value['FIELD1']; ?></td>
-												<td><?php echo $value['FIELD2']; ?></td>
-												<td><?php echo $value['FIELD3']; ?></td>
-												<td><?php echo $value['FIELD4']; ?></td>
-												<td><?php echo $value['FIELD5']; ?></td>
-												<td><?php echo substr($value['DATES'],0,4).'-'.substr($value['DATES'],4,2).'-'.substr($value['DATES'],6,2);?></td>
-												<td><?php echo substr($value['TIMES'],0,2).':'.substr($value['TIMES'],2,2).':'.substr($value['TIMES'],4,2);?></td>
+												<td><?= $value['FIELD1']; ?></td>
+												<td><?= $value['FIELD2']; ?></td>
+												<td><?= $value['FIELD3']; ?></td>
+												<td><?= $value['FIELD4']; ?></td>
+												<td><?= $value['FIELD5']; ?></td>
+												<td><?= substr($value['DATES'],0,4).'-'.substr($value['DATES'],4,2).'-'.substr($value['DATES'],6,2);?></td>
+												<td><?= substr($value['TIMES'],0,2).':'.substr($value['TIMES'],2,2).':'.substr($value['TIMES'],4,2);?></td>
 											</tr>
 										<?php endforeach; ?>
 									</tbody>
