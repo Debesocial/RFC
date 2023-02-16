@@ -76,7 +76,7 @@
 									<tbody>
 										<?php
 										$json_string = file_get_contents("http://mandiricoal.co.id:1880/RFC/VIEWDATA/");
-										$array = json_decode($json_string, true);
+										$array 		 = json_decode($json_string, true);
 										foreach($array['ITAB'] as $key => $value): ?>
 											<tr>
 												<td><?= $value['FIELD1']; ?></td>
@@ -99,34 +99,41 @@
 	</div>
 </div>
 
-<!-- POST ACTION -->
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-	$url 		= 'http://mandiricoal.co.id:1880/RFC/POSTDATA/';
-	$data[] = array(
-		'APPS'  	=> 'SEMAR',  		// Nama Aplikasi
-		'MODULE'  	=> 'POSTDATA',  	// Nama Module
-		'PARAM1'  	=> $_POST['param1'],    // Contoh Parameter 1	
-		'PARAM2'    	=> $_POST['param2'],	// Contoh Parameter 2  	   
-		'PARAM3'  	=> $_POST['param3'],	// Contoh Parameter 3
-		'PARAM4'  	=> $_POST['param4'],    // Contoh Parameter 4
-		'PARAM5'  	=> $_POST['param5']	// Contoh Parameter 5
-	);
 
-	@array_push($data[]);
-	$data_string = json_encode(array_filter($data)); 
+// Set the URL to the API endpoint
+	$url = 'http://mandiricoal.co.id:1880/RFC/POSTDATA/';
+
+// Define the data to be sent to the API
+	$data = array(
+    'PARAM1' => $_POST['param1'],     // Contoh Parameter 1    
+    'PARAM2' => $_POST['param2'],     // Contoh Parameter 2       
+    'PARAM3' => $_POST['param3'],     // Contoh Parameter 3
+    'PARAM4' => $_POST['param4'],     // Contoh Parameter 4
+    'PARAM5' => $_POST['param5']      // Contoh Parameter 5
+);
+
+// Use array_push correctly to add $data to $data[]
+	array_push($data, $data);
+
+// Convert the data to a JSON string
+	$data_string = json_encode(array_filter($data));
+
+// Initialize a new cURL session
 	$ch = curl_init();
+
+// Set the cURL options
 	curl_setopt($ch, CURLOPT_URL, $url);
-	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST"); 
-	curl_setopt($ch, CURLOPT_POST, true);
-	curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);  
+	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+	curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-	curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT ,0);
-	curl_setopt($ch, CURLOPT_TIMEOUT, 60);     
-	curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json','Content-Length: ' . strlen($data_string)));
+	curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json', 'Content-Length: ' . strlen($data_string)));
+
+// Execute the cURL request and capture the response
 	$out = curl_exec($ch);
+
+// Close the cURL session
 	curl_close($ch);
 
 	// OUTPUT MESSAGE
